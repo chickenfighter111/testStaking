@@ -1,1 +1,1 @@
-solana transfer --from /home/snghbeer/.config/solana/id.json 3b4Y9EGxYWsHvTYmdpSQQUqpsP7R5LqMruZjEA4na3qU 1 --allow-unfunded-recipient --url https://api.mainnet-beta.solana.com --fee-payer /home/snghbeer/.config/solana/id.json
+
