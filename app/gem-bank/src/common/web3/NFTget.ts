@@ -68,6 +68,7 @@ export async function getNFTsByOwner(
   conn: Connection
 ): Promise<INFT[]> {
   const tokens = await getTokensByOwner(owner, conn);
+  console.log(tokens)
   console.log(`found ${tokens.length} tokens`);
 
   return await getNFTMetadataForMany(tokens, conn);

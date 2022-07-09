@@ -12,6 +12,7 @@ pub struct AddToWhitelist<'info> {
     pub bank_manager: Signer<'info>,
 
     // whitelist
+    /// CHECK:
     pub address_to_whitelist: AccountInfo<'info>,
     // must stay init_as_needed, otherwise no way to change afterwards
     #[account(init_if_needed,

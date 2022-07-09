@@ -11,7 +11,17 @@ export interface INFT {
   pubkey?: PublicKey;
   mint: PublicKey;
   onchainMetadata: unknown;
-  externalMetadata: unknown;
+  externalMetadata: ExternalMetaData;
+}
+
+interface ExternalMetaData {
+  attributes: Array<any>;
+  collection: any;
+  image: String;
+  name:String;
+  properties:any;
+  seller_fee_basis_points:number;
+  symbol:String
 }
 
 async function getTokensByOwner(owner: PublicKey, conn: Connection) {
@@ -47,7 +57,6 @@ async function getNFTMetadata(
       externalMetadata,
     };
   } catch (e) {
-    console.log(`failed to pull metadata for token ${mint}`);
   }
 }
 
@@ -57,10 +66,13 @@ export async function getNFTMetadataForMany(
 ): Promise<INFT[]> {
   const promises: Promise<INFT | undefined>[] = [];
   tokens.forEach((t) => promises.push(getNFTMetadata(t.mint, conn, t.pubkey)));
-  const nfts = (await Promise.all(promises)).filter((n) => !!n);
-  console.log(`found ${nfts.length} metadatas`);
+  const nfts = (await Promise.all(promises)).filter((n) =>n?.externalMetadata.symbol === "SoV");//so we can only see a specific NFT Collection
+  //console.log(`found ${nfts.length} metadatas`);
+  /*console.log(nfts.filter((nft)=> {
+    return (nft?.externalMetadata.symbol === "SsS")
+  }));*/
 
-  return nfts as INFT[];
+  return nfts as INFT[]; 
 }
 
 export async function getNFTsByOwner(
@@ -68,7 +80,7 @@ export async function getNFTsByOwner(
   conn: Connection
 ): Promise<INFT[]> {
   const tokens = await getTokensByOwner(owner, conn);
-  console.log(`found ${tokens.length} tokens`);
+  //console.log(`found ${tokens.length} tokens`);
 
   return await getNFTMetadataForMany(tokens, conn);
 }

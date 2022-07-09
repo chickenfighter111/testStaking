@@ -3,13 +3,6 @@
   <div v-if="!wallet" class="text-center">Pls connect (burner) wallet</div>
   <div v-else>
     <!--farm address-->
-    <div class="nes-container with-title mb-10">
-      <p class="title">Connect to a Farm</p>
-      <div class="nes-field mb-5">
-        <label for="farm">Farm address:</label>
-        <input id="farm" class="nes-input" v-model="farm" />
-      </div>
-    </div>
 
     <div v-if="farmerAcc">
       <FarmerDisplay
@@ -29,34 +22,34 @@
       >
         <button
           v-if="farmerState === 'staked' && selectedNFTs.length > 0"
-          class="nes-btn is-primary mr-5"
+          class="md-btn md-bg-indigo-900 md-color-white ripple-surface"
           @click="addGems"
         >
-          Add Gems (resets staking)
+         <p> Stake (resets staking)</p>
         </button>
         <button
           v-if="farmerState === 'unstaked'"
-          class="nes-btn is-success mr-5"
+          class="md-btn md-bg-indigo-900 md-color-white ripple-surface"
           @click="beginStaking"
         >
-          Begin staking
+          <p>Stake</p>
         </button>
         <button
           v-if="farmerState === 'staked'"
-          class="nes-btn is-error mr-5"
+          class="md-btn md-bg-indigo-900 md-color-white ripple-surface"
           @click="endStaking"
         >
-          End staking
+          <p>Unstake</p>
         </button>
         <button
           v-if="farmerState === 'pendingCooldown'"
-          class="nes-btn is-error mr-5"
+          class="md-btn md-bg-indigo-900 md-color-white ripple-surface"
           @click="endStaking"
         >
-          End cooldown
+         <p>Confirm unstake</p>
         </button>
-        <button class="nes-btn is-warning" @click="claim">
-          Claim {{ availableA }} A / {{ availableB }} B
+        <button class="md-btn md-bg-indigo-900 md-color-white ripple-surface" @click="claim">
+          <p>Claim {{ availableA }} </p>
         </button>
       </Vault>
     </div>
@@ -65,8 +58,8 @@
         Farmer account not found :( Create a new one?
       </div>
       <div class="w-full text-center">
-        <button class="nes-btn is-primary" @click="initFarmer">
-          New Farmer
+        <button class="md-btn md-bg-indigo-900 md-color-white ripple-surface" @click="initFarmer">
+          <p>New Farmer</p>
         </button>
       </div>
     </div>
@@ -102,7 +95,7 @@ export default defineComponent({
     });
 
     // --------------------------------------- farmer details
-    const farm = ref<string>();
+    const farm = ref<string>("94RX6jRTuf7FYopYAdboHcJYBDiCoxSyXjFCweoeDLTp");
     const farmAcc = ref<any>();
 
     const farmerIdentity = ref<string>();
@@ -128,10 +121,6 @@ export default defineComponent({
 
     const fetchFarn = async () => {
       farmAcc.value = await gf.fetchFarmAcc(new PublicKey(farm.value!));
-      console.log(
-        `farm found at ${farm.value}:`,
-        stringifyPKsAndBNs(farmAcc.value)
-      );
     };
 
     const fetchFarmer = async () => {
@@ -143,10 +132,6 @@ export default defineComponent({
       farmerAcc.value = await gf.fetchFarmerAcc(farmerPDA);
       farmerState.value = gf.parseFarmerState(farmerAcc.value);
       await updateAvailableRewards();
-      console.log(
-        `farmer found at ${farmerIdentity.value}:`,
-        stringifyPKsAndBNs(farmerAcc.value)
-      );
     };
 
     const freshStart = async () => {

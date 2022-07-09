@@ -219,7 +219,6 @@ export default defineComponent({
       const foundGDRs = await gb.fetchAllGdrPDAs(new PublicKey(vault.value!));
       if (foundGDRs && foundGDRs.length) {
         gdrs.value = foundGDRs;
-        console.log(`found a total of ${foundGDRs.length} gdrs`);
 
         const mints = foundGDRs.map((gdr: any) => {
           return { mint: gdr.account.gemMint };

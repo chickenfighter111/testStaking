@@ -2,3 +2,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "VIKING";
+    src: url("../public/VK_BOLD.otf");
+  }
+  
+  .bg_container{
+    background-image: linear-gradient(
+      to bottom,
+      #ecf2f8 0,
+      #5db0f8 100%
+    )
+  }
+
+  .title {
+    background-image: linear-gradient(
+      to bottom,
+      #c9eafd 0,
+      #88c6fc 100%
+    )
+  }

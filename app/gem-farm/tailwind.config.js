@@ -3,6 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        viking: ["VIKING", "bold"],
+      },
       screens: {
         w700: '700px',
         w650: '650px',

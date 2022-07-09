@@ -179,7 +179,7 @@ export class GemBankClient extends AccountUtils {
         ]
       : [];
     const pdas = await this.bankProgram.account.gemDepositReceipt.all(filter);
-    console.log(`found a total of ${pdas.length} GDR PDAs`);
+    //console.log(`found a total of ${pdas.length} GDR PDAs`);
     return pdas;
   }
 
@@ -195,14 +195,14 @@ export class GemBankClient extends AccountUtils {
         ]
       : [];
     const pdas = await this.bankProgram.account.whitelistProof.all(filter);
-    console.log(`found a total of ${pdas.length} whitelist proofs`);
+    //console.log(`found a total of ${pdas.length} whitelist proofs`);
     return pdas;
   }
 
   async fetchAllRarityPDAs() {
     //todo need to add client-side (not stored in PDA) filtering based on finding PDAs for given farm and mint
     const pdas = await this.bankProgram.account.rarity.all();
-    console.log(`found a total of ${pdas.length} rarity PDAs`);
+    //console.log(`found a total of ${pdas.length} rarity PDAs`);
     return pdas;
   }
 

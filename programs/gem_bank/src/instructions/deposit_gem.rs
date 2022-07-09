@@ -23,6 +23,7 @@ pub struct DepositGem<'info> {
     #[account(mut)]
     pub owner: Signer<'info>,
     #[account(seeds = [vault.key().as_ref()], bump = bump_auth)]
+    /// CHECK:
     pub authority: AccountInfo<'info>,
 
     // gem
@@ -54,6 +55,7 @@ pub struct DepositGem<'info> {
             bank.key().as_ref(),
             gem_mint.key().as_ref()
         ], bump = bump_rarity)]
+    /// CHECK:
     pub gem_rarity: AccountInfo<'info>,
 
     // misc

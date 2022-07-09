@@ -38,7 +38,7 @@ function App() {
   async function getProvider() {
     /* create the provider and return it to the caller */
     /* network set to local network for now */
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
 
     const provider = new Provider(
@@ -49,7 +49,7 @@ function App() {
 
   async function claimRewards() {
 
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
     const farm = await fetchFarn(connection, wallet)
     const claimResults = await claim(farm, connection, wallet)
@@ -63,7 +63,7 @@ function App() {
   }
 
   async function getRewardA() {
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
     const farmerAcc = await fetchFarmer(connection, wallet)
     const diff = farmerAcc.farmerAcc.rewardA.accruedReward - farmerAcc.farmerAcc.rewardA.paidOutReward
@@ -74,7 +74,7 @@ function App() {
 
   async function getUnstakedNfts() {
     const provider = await getProvider()
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
 
     const providerPublicKey = new PublicKey(provider.wallet.publicKey)
@@ -90,7 +90,7 @@ function App() {
   async function getStakedNfts() {
     // console.log("viewing staked nfts")
     // console.log(wallet.publicKey.toBase58())
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
 
     const farmStarted = await fetchFarn(connection, wallet)
@@ -103,7 +103,7 @@ function App() {
   }
 
   async function stakeNft(nft) {
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
     console.log("staking nft", nft.onchainMetadata.mint)
     const stakeResult = await stakerMover(nft, connection, wallet)
@@ -114,7 +114,7 @@ function App() {
   }
 
   async function stakeMoreNfts(nft) {
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
     console.log("staking additional nft", nft.onchainMetadata.mint)
     const stakeResult = await stakerMoreMover(nft, connection, wallet)
@@ -125,7 +125,7 @@ function App() {
   }
 
   async function withdrawStake(nfts) {
-    const network = "https://api.devnet.solana.com";
+    const network = "https://api.mainnet-beta.solana.com";
     const connection = new Connection(network, opts.preflightCommitment);
     const endStakeResults = await superUnstakeMover(nfts, connection, wallet)
     console.log(endStakeResults)
@@ -265,7 +265,7 @@ function App() {
 }
 
 const AppWithProvider = () => (
-  <ConnectionProvider endpoint="https://api.devnet.solana.com">
+  <ConnectionProvider endpoint="https://api.mainnet-beta.solana.com">
     <WalletProvider wallets={wallets} autoConnect>
       <WalletModalProvider>
         <App />

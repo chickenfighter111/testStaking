@@ -86,6 +86,7 @@ export default defineComponent({
     watch(selectedVault, async () => {
       updateVaultByPk();
       await loadNFTs();
+      console.log(fetchedVaultNFTs)
     });
 
     const updateVaultByPk = () => {

@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-center fork">
     <div v-if="showText" class="nes-balloon from-right balloon">
-      <p>Fork me on Github</p>
+      <p>Hello staker!</p>
     </div>
-    <a href="https://github.com/gemworks/gem-farm" target="_blank" class="cat">
+    <a target="_blank" class="cat">
       <i
         @mouseover="showText = true"
         @mouseleave="showText = false"

@@ -23,7 +23,7 @@ export default defineComponent({
 
     const toggleSelect = () => {
       selected.value = !selected.value;
-      console.log('selected', props.nft.mint.toBase58());
+      //console.log('selected', props.nft.mint.toBase58());
       ctx.emit('selected', {
         nft: props.nft,
         selected: selected.value,
@@ -47,8 +47,8 @@ img {
 }
 
 .card {
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
 }
 
 .card:hover {
@@ -57,6 +57,6 @@ img {
 
 .card-selected {
   @apply border-4 border-solid;
-  border-color: black !important;
+  border-color: rgb(40, 97, 255) !important;
 }
 </style>

@@ -4,8 +4,6 @@
       <select required id="cluster" v-model="chosenCluster">
         <option :value="Cluster.Mainnet">Mainnet</option>
         <option :value="Cluster.Devnet">Devnet</option>
-        <option :value="Cluster.Testnet">Testnet</option>
-        <option :value="Cluster.Localnet">Localnet</option>
       </select>
     </div>
     <div class="nes-select is-dark flex-1">

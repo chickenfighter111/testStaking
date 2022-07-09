@@ -21,6 +21,7 @@ pub struct WithdrawGem<'info> {
     #[account(mut)]
     pub owner: Signer<'info>,
     #[account(seeds = [vault.key().as_ref()], bump = bump_auth)]
+    /// CHECK:
     pub authority: AccountInfo<'info>,
 
     // gem
@@ -50,9 +51,11 @@ pub struct WithdrawGem<'info> {
             bank.key().as_ref(),
             gem_mint.key().as_ref()
         ], bump = bump_rarity)]
+    /// CHECK:
     pub gem_rarity: AccountInfo<'info>,
     // unlike with deposits, the gem can be sent out to anyone, not just the owner
     #[account(mut)]
+    /// CHECK:
     pub receiver: AccountInfo<'info>,
 
     // misc

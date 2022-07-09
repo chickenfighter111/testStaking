@@ -6,10 +6,10 @@
         (toWalletNFTs && toWalletNFTs.length) ||
         (toVaultNFTs && toVaultNFTs.length)
       "
-      class="nes-btn is-primary mr-5"
+      class="md-btn md-bg-indigo-900 md-color-white ripple-surface"
       @click="moveNFTsOnChain"
     >
-      Move Gems!
+      <p>Move</p>
     </button>
     <slot />
   </div>
@@ -124,7 +124,6 @@ export default defineComponent({
       const foundGDRs = await gb.fetchAllGdrPDAs(vault.value);
       if (foundGDRs && foundGDRs.length) {
         gdrs.value = foundGDRs;
-        console.log(`found a total of ${foundGDRs.length} gdrs`);
 
         const mints = foundGDRs.map((gdr: any) => {
           return { mint: gdr.account.gemMint };
@@ -134,9 +133,6 @@ export default defineComponent({
           getConnection()
         );
         desiredVaultNFTs.value = [...currentVaultNFTs.value];
-        console.log(
-          `populated a total of ${currentVaultNFTs.value.length} vault NFTs`
-        );
       }
     };
 
@@ -211,7 +207,7 @@ export default defineComponent({
           //todo currently simply taking the 1st creator
           (nft.onchainMetadata as any).data.creators[0].address
         );
-        console.log('creator is', creator.toBase58());
+        //console.log('creator is', creator.toBase58());
         await depositGem(nft.mint, creator, nft.pubkey!);
       }
       for (const nft of toWalletNFTs.value) {
@@ -228,7 +224,7 @@ export default defineComponent({
           desiredVaultNFTs.value,
           currentVaultNFTs.value
         );
-        console.log('to vault nfts are', toVaultNFTs.value);
+        //console.log('to vault nfts are', toVaultNFTs.value);
       },
       { deep: true }
     );
@@ -241,7 +237,6 @@ export default defineComponent({
           desiredWalletNFTs.value,
           currentWalletNFTs.value
         );
-        console.log('to wallet nfts are', toWalletNFTs.value);
       },
       { deep: true }
     );

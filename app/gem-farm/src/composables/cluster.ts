@@ -4,16 +4,12 @@ import { DEFAULTS } from '@/globals';
 
 export enum Cluster {
   Mainnet = 'mainnet',
-  Devnet = 'devnet',
-  Testnet = 'testnet',
-  Localnet = 'localnet',
+  Devnet = 'devnet'
 }
 
 const clusterURLMapping = {
-  mainnet: process.env.VUE_APP_MAINNET_URL || 'https://ssc-dao.genesysgo.net/',
+  mainnet: process.env.VUE_APP_MAINNET_URL || 'https://api.mainnet-beta.solana.com',
   devnet: process.env.VUE_APP_DEVNET_URL || 'https://api.devnet.solana.com',
-  testnet: process.env.VUE_APP_TESTNET_URL || 'https://api.testnet.solana.com',
-  localnet: process.env.VUE_APP_LOCALNET_URL || 'http://localhost:8899',
 };
 
 const cluster = ref<Cluster>(DEFAULTS.CLUSTER as any);

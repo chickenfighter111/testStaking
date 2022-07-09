@@ -13,6 +13,7 @@ pub struct RemoveFromWhitelist<'info> {
     pub bank_manager: Signer<'info>,
 
     // whitelist
+    /// CHECK:
     pub address_to_remove: AccountInfo<'info>,
     #[account(mut, has_one = bank, seeds = [
             b"whitelist".as_ref(),
