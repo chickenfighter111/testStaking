@@ -3,7 +3,10 @@
     <p class="title">Soldiers of Valhalla NFT</p>
     <p>Welcome to Soldiers of Valhalla NFT STAKING app !</p>
     <p class="mt-5">
-      You can stake your VIKING here!
+      You are at the right place to stake your VIKING!
+    </p>
+   <p class="mt-5">
+      The more you stake, the more you earn 😉
     </p>
   </div>
     <div class="nes-container mb-10 ">
