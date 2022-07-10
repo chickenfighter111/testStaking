@@ -3,14 +3,7 @@
     <p class="title">Soldiers of Valhalla NFT</p>
     <p>Welcome to Soldiers of Valhalla NFT STAKING app !</p>
     <p class="mt-5">
-      You can stake your VIKING NFT here.
-    </p>
-     <p class="mt-5">
-      Note: Staking fees are and rewards claiming fees are up paid by the staker.
-    </p>
-    <p class="mt-5">
-      Gem Farm is deployed at:
-      <span class="bg-yellow-100">{{ DEFAULTS.GEM_FARM_PROG_ID }}</span>
+      You can stake your VIKING here!
     </p>
   </div>
     <div class="nes-container mb-10 ">
