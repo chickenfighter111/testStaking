@@ -396,9 +396,7 @@ export class GemBankClient extends AccountUtils {
     const signers = [];
     if (isKp(vaultOwner)) signers.push(<Keypair>vaultOwner);
 
-    console.log(
-      `depositing ${gemAmount} gems into ${gemBox.toBase58()}, GDR ${GDR.toBase58()}`
-    );
+    //console.log(`depositing ${gemAmount} gems into ${gemBox.toBase58()}, GDR ${GDR.toBase58()}`);
     const txSig = await this.bankProgram.rpc.depositGem(
       vaultAuthBump,
       gemBoxBump,

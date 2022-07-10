@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: '/manager',
+    path: '/manager/solking',
     name: 'Farm Manager',
     component: Manager,
   },

@@ -244,7 +244,7 @@ export class GemFarm extends GemFarmClient {
       this.wallet.publicKey
     );
 
-    console.log('initialized new farmer', this.wallet.publicKey.toBase58());
+    //console.log('initialized new farmer', this.wallet.publicKey.toBase58());
 
     return result;
   }
@@ -252,7 +252,7 @@ export class GemFarm extends GemFarmClient {
   async stakeWallet(farm: PublicKey) {
     const result = await this.stake(farm, this.wallet.publicKey);
 
-    console.log('begun staking for farmer', this.wallet.publicKey.toBase58());
+    //console.log('begun staking for farmer', this.wallet.publicKey.toBase58());
 
     return result;
   }
@@ -260,7 +260,7 @@ export class GemFarm extends GemFarmClient {
   async unstakeWallet(farm: PublicKey) {
     const result = await this.unstake(farm, this.wallet.publicKey);
 
-    console.log('ended staking for farmer', this.wallet.publicKey.toBase58());
+    //console.log('ended staking for farmer', this.wallet.publicKey.toBase58());
 
     return result;
   }
@@ -277,7 +277,7 @@ export class GemFarm extends GemFarmClient {
       rewardBMint
     );
 
-    console.log('claimed rewards for farmer', this.wallet.publicKey.toBase58());
+    //console.log('claimed rewards for farmer', this.wallet.publicKey.toBase58());
 
     return result;
   }
@@ -310,7 +310,7 @@ export class GemFarm extends GemFarmClient {
       creatorProof
     );
 
-    console.log('added extra gem for farmer', this.wallet.publicKey.toBase58());
+   // console.log('added extra gem for farmer', this.wallet.publicKey.toBase58());
 
     return result;
   }

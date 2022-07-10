@@ -162,7 +162,7 @@ export class GemFarmClient extends GemBankClient {
         ]
       : [];
     const pdas = await this.farmProgram.account.farm.all(filter);
-    console.log(`found a total of ${pdas.length} farm PDAs`);
+    //console.log(`found a total of ${pdas.length} farm PDAs`);
     return pdas;
   }
 
@@ -185,7 +185,7 @@ export class GemFarmClient extends GemBankClient {
       });
     }
     const pdas = await this.farmProgram.account.farmer.all(filter);
-    console.log(`found a total of ${pdas.length} farmer PDAs`);
+    //console.log(`found a total of ${pdas.length} farmer PDAs`);
     return pdas;
   }
 
@@ -521,7 +521,7 @@ export class GemFarmClient extends GemBankClient {
 
     let txSig;
     if (unstake) {
-      console.log('UNstaking gems for', identityPk.toBase58());
+     // console.log('UNstaking gems for', identityPk.toBase58());
       txSig = await this.farmProgram.rpc.unstake(
         farmAuthBump,
         farmTreasuryBump,
@@ -542,7 +542,7 @@ export class GemFarmClient extends GemBankClient {
         }
       );
     } else {
-      console.log('staking gems for', identityPk.toBase58());
+    //  console.log('staking gems for', identityPk.toBase58());
       txSig = await this.farmProgram.rpc.stake(farmAuthBump, farmerBump, {
         accounts: {
           farm,

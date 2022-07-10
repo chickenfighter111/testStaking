@@ -168,7 +168,7 @@ export default defineComponent({
         source,
         creator
       );
-      console.log('deposit done', txSig);
+      //console.log('deposit done', txSig);
     };
 
     const withdrawGem = async (mint: PublicKey) => {
@@ -178,7 +178,7 @@ export default defineComponent({
         new BN(1),
         mint
       );
-      console.log('withdrawal done', txSig);
+      //console.log('withdrawal done', txSig);
     };
 
     // --------------------------------------- populate initial nfts
