@@ -5,6 +5,8 @@ import { Connection, Keypair, PublicKey } from '@solana/web3.js';
 import { SignerWalletAdapter } from '@solana/wallet-adapter-base';
 import { DEFAULTS } from '@/globals';
 import { NodeWallet, programs } from '@metaplex/js';
+//import {GemFarmClient} from '../../../sdk/src/gem-farm.client';
+
 
 //when we only want to view vaults, no need to connect a real wallet.
 function createFakeWallet() {

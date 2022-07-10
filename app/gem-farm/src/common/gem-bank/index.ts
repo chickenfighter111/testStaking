@@ -71,8 +71,8 @@ export class GemBank extends GemBankClient {
     gemSource: PublicKey,
     creator: PublicKey
   ) {
-    const [mintProof, bump] = await this.findWhitelistProofPDA(bank, gemMint);
-    const [creatorProof, bump2] = await this.findWhitelistProofPDA(
+    const [mintProof, bump]:[PublicKey, number] = await this.findWhitelistProofPDA(bank, gemMint);
+    const [creatorProof, bump2]:[PublicKey, number] = await this.findWhitelistProofPDA(
       bank,
       creator
     );
