@@ -6,7 +6,7 @@ gem_farm = "FARMQDpJuUquVynDzyWiPgniR35Vw5bd79xZ3McmEbb5"
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "https://api.mainnet-beta.solana.com"
+cluster = "https://billowing-floral-morning.solana-mainnet.quiknode.pro/5fa39a46e288be6db22973a1806d0f11e2d03a79/"
 wallet = "/home/snghbeer/.config/solana/id.json"
 
 [scripts]
